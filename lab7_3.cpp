@@ -2,39 +2,24 @@
 
 using namespace std;
 
-int adiff(int a, int b){
-    int x,y,i=0;
-    while(i == 0){
-        if(a >= 360 ){
-        a=a-360;
-    }
-    else{
-        i++;
-    }
-    }
-    i=0;
-    while(i == 0){
-        if(b >= 360 ){
-        b=b-360;
-    }
-    else{
-        i++;
-    }
-    }
+double adiff(int a,int b){
+  if(a>=360 or a <= -360){
+    a = a % 360;
+  }
+  if(b>=360 or b <= -360){
+    b = b % 360;
+  }
+  int c;
+  if(a>=b){
+    c = a-b;
+  }else{
+    c = b-a;
+  }
+  if(c>180){
+    c = 360 - c; 
+  }
 
-    x=a-b;
-    y=(360-b)+a;
-    if(x < 0){
-        x=x*-1;
-    }
-    if(y < 0){
-        y=y*-1;
-    }
-    if(x <= y){
-        return x;
-    }else{
-        return y;
-    }
+  return c ;
 }
 
 int main(){
